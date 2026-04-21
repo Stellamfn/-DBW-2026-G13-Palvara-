@@ -1,0 +1,65 @@
+<!-- Isto é um comentário em html -->
+<!DOCTYPE html> <!-- Declaração de html 5 -->
+
+<html lang="pt-PT"> <!-- Declaração de que esta página está em português de Portugal -->
+
+<!-- Chama o Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/css/meuEstilo.css"> <!-- Define meuEstilo.css como stylesheet desta página -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Declaração de uso de caracteres especiais da língua portuguesa -->
+    <title>[Nome do Jogo] - Home Page</title> <!-- Título do separador -->
+</head>
+
+<body>
+    <div id="navbar"> <!-- Divisório com id "navbar" para a barra de navegação -->
+        <img onclick="popUp('stats')" src="/img/statsDefault.png" alt="statistics"> <!-- Imagem para botão de aceder às estatisticas -->
+        <img onclick="popUp('tutorial')" src="/img/howToPlayDefault.png" alt="tutorial"> <!-- Imagem para botão de aceder ao texto que explica como jogar o jogo -->
+        <img onclick="popUp('config')" src="/img/settingsDefault.png" alt="settings"> <!-- Imagem para botão de aceder as definições -->
+    </div>
+
+    <div class="nomeDoJogo"> <!-- Divisório com classe "nomeDoJogo" para centralizar o mesmo -->
+        <h1 class="titulo escuro">[Nome do Jogo]</h1> <!-- Título -->
+    </div>
+
+    <div class="espacoPequeno"></div> <!-- Divisório com classe "espacoPequeno" para criar um espaço pequeno -->
+
+    <div class="container"> <!-- Divisório com classe "container" do Bootstrap para centralizar o conteúdo -->
+        <div class="linha conteudoPrincipal"> <!-- Divisório com classe "linha1" -->
+            
+            <div class="content visibleContent1"> <!-- Divisório com classe "content" -->
+                <h3 class="opcao">Perfil</h3> <!-- Título de exemplo -->
+            </div>
+
+            <div onclick="window.location.href='/singlePlayer'" class="content visibleContent1"> <!-- Divisório com classe "content" -->
+                <h3 class="opcao">Single Player</h3> <!-- Título de exemplo -->
+            </div>
+
+            <div onclick="popUp('salas')" class="content visibleContent1"> <!-- Divisório com classe "content" -->
+                <h3 class="opcao">Multi Player</h3> <!-- Título de exemplo -->
+            </div>
+
+        </div>
+        <div class="linha linha2"> <!-- Divisório com classe "linha2" -->
+            
+            <div class="content">
+                <h4 class="logOff">Log Off</h4> <!-- Opção de Log off -->
+            </div>
+            <div class="content">
+                <div class="invisible">Chouriço</div> <!-- div invisível e o chouriço é para encher -->
+            </div> 
+            <div class="content">
+                <div class="invisible">Chouriço</div> <!-- div invisível e o chouriço é para encher -->
+            </div>
+
+        </div>
+    </div>
+
+    <div class="espacoPequeno"></div> <!-- Divisório com classe "espacoPequeno" para criar um espaço grande -->
+
+    <script type="module" src="/js/index.js"></script>
+</body>
+
+</html>
