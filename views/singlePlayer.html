@@ -10,18 +10,19 @@
 
 <head>
     <meta charset="UTF-8"> <!-- Declaração de uso de caracteres especiais da língua portuguesa -->
-    <title>[Nome do Jogo] - Single Player</title> <!-- Título do separador -->
+    <title>Palvara - Single Player</title> <!-- Título do separador -->
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
 </head>
 
 <body>
     <div class="linha">
         <div id="back"> <!-- Divisório com id "back" para a botão de retroceder/sair -->
-            <img src="/img/backDefault.png" alt="back">
+            <img onclick="window.location.href='/'" class="clicavel" src="/img/backDefault.png" alt="back">
         </div>
         <div id="navbar"> <!-- Divisório com id "navbar" para a barra de navegação -->
-            <img onclick="popUp('stats')" src="/img/statsDefault.png" alt="statistics"> <!-- Imagem para botão de aceder às estatisticas -->
-            <img onclick="popUp('tutorial')" src="/img/howToPlayDefault.png" alt="tutorial"> <!-- Imagem para botão de aceder ao texto que explica como jogar o jogo -->
-            <img onclick="popUp('config')" src="/img/settingsDefault.png" alt="settings"> <!-- Imagem para botão de aceder as definições -->
+            <img class="clicavel" onclick="popUp('stats')" src="/img/statsDefault.png" alt="statistics"> <!-- Imagem para botão de aceder às estatisticas -->
+            <img class="clicavel" onclick="popUp('tutorial')" src="/img/howToPlayDefault.png" alt="tutorial"> <!-- Imagem para botão de aceder ao texto que explica como jogar o jogo -->
+            <img class="clicavel" onclick="popUp('config')" src="/img/settingsDefault.png" alt="settings"> <!-- Imagem para botão de aceder as definições -->
         </div>
     </div>
 

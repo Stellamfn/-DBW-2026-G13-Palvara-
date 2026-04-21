@@ -3,6 +3,8 @@
 /*
     Variáveis CSS para facilitar a manutenção de estilos
     Útil também para mudar as cores para modo claro/escuro
+
+    TEMA ESCURO COMO DEFAULT
 */
 :root {
   --cor-fundo: #121917;
@@ -23,6 +25,35 @@
   --espacamento-muito-pequeno: 1vw;
   --espacamento-pequeno: 4vw;
   --espacamento-grande: 8vw;
+}
+
+/*
+    Aqui declaramos que para todo o body com a classe "modoClaro"
+    (Classe injetada por js)
+    As variáveis anteriormente declaradas mudam de valor para a mesma finalidade
+
+    TEMA CLARO
+*/
+body.modoClaro {
+    --cor-fundo: #E8F5E9;
+
+  --cor-texto-1: #1E1E1E;
+  --cor-texto-2: #1E1E1E;
+
+  --cor-conteudo-1: #D9D9D9;
+  --cor-conteudo-2: #4F8F78;
+
+  --cor-botao-especial: #6FAF8F;
+
+  --cor-popup: #5E3E2D;
+}
+
+/*
+    Estilo para elementos clicáveis
+*/
+.clicavel:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 /*

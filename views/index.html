@@ -10,18 +10,19 @@
 
 <head>
     <meta charset="UTF-8"> <!-- Declaração de uso de caracteres especiais da língua portuguesa -->
-    <title>[Nome do Jogo] - Home Page</title> <!-- Título do separador -->
+    <title>Palvara - Home Page</title> <!-- Título do separador -->
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
 </head>
 
 <body>
     <div id="navbar"> <!-- Divisório com id "navbar" para a barra de navegação -->
-        <img onclick="popUp('stats')" src="/img/statsDefault.png" alt="statistics"> <!-- Imagem para botão de aceder às estatisticas -->
-        <img onclick="popUp('tutorial')" src="/img/howToPlayDefault.png" alt="tutorial"> <!-- Imagem para botão de aceder ao texto que explica como jogar o jogo -->
-        <img onclick="popUp('config')" src="/img/settingsDefault.png" alt="settings"> <!-- Imagem para botão de aceder as definições -->
+        <img class="clicavel" onclick="popUp('stats')" src="/img/statsDefault.png" alt="statistics"> <!-- Imagem para botão de aceder às estatisticas -->
+        <img class="clicavel" onclick="popUp('tutorial')" src="/img/howToPlayDefault.png" alt="tutorial"> <!-- Imagem para botão de aceder ao texto que explica como jogar o jogo -->
+        <img class="clicavel" onclick="popUp('config')" src="/img/settingsDefault.png" alt="settings"> <!-- Imagem para botão de aceder as definições -->
     </div>
 
     <div class="nomeDoJogo"> <!-- Divisório com classe "nomeDoJogo" para centralizar o mesmo -->
-        <h1 class="titulo escuro">[Nome do Jogo]</h1> <!-- Título -->
+        <h1 class="titulo escuro">Palvara</h1> <!-- Título -->
     </div>
 
     <div class="espacoPequeno"></div> <!-- Divisório com classe "espacoPequeno" para criar um espaço pequeno -->
@@ -33,11 +34,11 @@
                 <h3 class="opcao">Perfil</h3> <!-- Título de exemplo -->
             </div>
 
-            <div onclick="window.location.href='/singlePlayer'" class="content visibleContent1"> <!-- Divisório com classe "content" -->
+            <div onclick="window.location.href='/singlePlayer'" class="content visibleContent1 clicavel"> <!-- Divisório com classe "content" -->
                 <h3 class="opcao">Single Player</h3> <!-- Título de exemplo -->
             </div>
 
-            <div onclick="popUp('salas')" class="content visibleContent1"> <!-- Divisório com classe "content" -->
+            <div onclick="popUp('salas')" class="content visibleContent1 clicavel"> <!-- Divisório com classe "content" -->
                 <h3 class="opcao">Multi Player</h3> <!-- Título de exemplo -->
             </div>
 
@@ -45,7 +46,7 @@
         <div class="linha linha2"> <!-- Divisório com classe "linha2" -->
             
             <div class="content">
-                <h4 class="logOff">Log Off</h4> <!-- Opção de Log off -->
+                <h4 onclick="logOff()" class="logOff clicavel">Log Off</h4>
             </div>
             <div class="content">
                 <div class="invisible">Chouriço</div> <!-- div invisível e o chouriço é para encher -->

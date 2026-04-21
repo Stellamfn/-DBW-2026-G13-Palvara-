@@ -3,6 +3,9 @@
 // ======================================================================
 import express from 'express';
 
+//Não permite injeção de html a partir dos formulários
+//import sanitizeHtml from 'sanitize-html';
+
 // Define express como a app que iremos usar
 const app = express();
 // Porta do servidor
@@ -23,8 +26,32 @@ app.get('/singlePlayer', (req, res) => {
     res.sendFile('singlePlayer.html', { root: './views' });
 });
 
+// Rota para a página de Multi Player
+app.get('/multiPlayer', (req, res) => {
+    res.sendFile('multiplayerPlayRoom.html', { root: './views' });
+});
+
+// Rota para a página de Espera Multi Player
+app.get('/multiPlayer-waitRoom', (req, res) => {
+    res.sendFile('multiplayerWaitRoom.html', { root: './views' });
+});
+
+// Rota para a página de Criar Conta
+app.get('/sign-in', (req, res) => {
+    res.sendFile('createAccountPage.html', { root: './views' });
+});
+
+// Rota para a página de Log-In
+app.get('/login', (req, res) => {
+    res.sendFile('loginPage.html', { root: './views' });
+});
+
 // ======================================================================
 
 app.listen(PORT, () => {
     console.log(`Servidor a correr em http://localhost:${PORT}`);
 });
+
+// Log de Erros
+
+/* Ignorar "Unchecked runtime.lastError" - É erro do browser, não do projeto */

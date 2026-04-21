@@ -10,14 +10,15 @@
 
 <head>
     <meta charset="UTF-8"> <!-- Declaração de uso de caracteres especiais da língua portuguesa -->
-    <title>[Nome do Jogo] - Log-In</title> <!-- Título do separador -->
+    <title>Palvara - Log-In</title> <!-- Título do separador -->
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
 </head>
 
 <body>
     <div class="espacoPequeno"></div> <!-- Divisório com classe "espacoPequeno" para criar um espaço pequeno -->
 
     <div class="nomeDoJogo"> <!-- Divisório com classe "nomeDoJogo" para centralizar o mesmo -->
-        <h1 class="titulo escuro">[Nome do Jogo]</h1> <!-- Título -->
+        <h1 class="titulo escuro">Palvara</h1> <!-- Título -->
     </div>
 
     <div class="espacoPequeno"></div> <!-- Divisório com classe "espacoPequeno" para criar um espaço pequeno -->
@@ -34,17 +35,19 @@
                 <h2 class="claro">Palavra-passe</h2> <!-- Título de exemplo -->
                 <input class="fullWidth" type="password" id="password" name="password">
                 <br><br><br>
-                <div type="submit" class=" continuar">
+                <div id="btnLogin" class="clicavel continuar">
                     <h2 class="titulo claro">Continuar</h2>
                 </div>
             </form>
 
-            <h3 class="titulo claro">Criar conta</h3>
+            <h3 onclick="window.location.href='/sign-in'" class="titulo claro clicavel">Criar conta</h3>
 
         </div>
     </div>
 
     <div class="espacoPequeno"></div> <!-- Divisório com classe "espacoPequeno" para criar um espaço pequeno -->
+
+    <script src="/js/loginPage.js"></script>
 </body>
 
 </html>
