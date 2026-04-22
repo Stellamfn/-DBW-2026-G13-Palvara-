@@ -48,7 +48,8 @@ app.get('/login', (req, res) => {
 
 // ======================================================================
 
-app.listen(PORT, () => {
+// 0.0.0.0 permite ligações a dispositivos na mesma rede
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor a correr em http://localhost:${PORT}`);
 });
 
