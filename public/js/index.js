@@ -17,6 +17,7 @@ import { popUp } from './popUp.js';
 window.popUp = popUp;
 
 // IMPORTANTE - Temporário - para uso com somente frontend
+
 // Verifica se há sessão, se não redireciona para o login
 if (!sessionStorage.getItem('utilizador')) {
     window.location.href = '/login';

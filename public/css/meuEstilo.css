@@ -19,6 +19,10 @@
 
   --cor-popup: #5E3E2D;
 
+  --altura-popup: 75vh; /* 75% da altura da janela atual */
+
+  --checkbox-size: 2; /* x2 */
+
   --arredondamento: 20px;
 
   /* 1vw = 1% do tamanho da janela atual */
@@ -78,6 +82,8 @@ body {
     justify-content: start;
 
     flex: 1; 
+
+    padding: 4px;
 }
 
 /*
@@ -94,6 +100,8 @@ body {
     justify-content: end;
 
     flex: 1;
+
+    padding: 4px;
 }
 
 /*
@@ -229,8 +237,8 @@ div.content {
     background-color: var(--cor-popup);
     /* Arredonda os cantos da div */
     border-radius: var(--arredondamento);
-    /* Define a altura do conteúdo principal da página para 72% da altura da janela atual */
-    height: 72vh;
+    /* Define a altura do conteúdo principal da página para X% da altura da janela atual */
+    height: var(--altura-popup);
     /* flex box */
     display: flex;
 }
@@ -350,4 +358,15 @@ div.flexiona2 {
 /* Específico para a página singlePlayer.html */
 .container.conteudoPrincipal.visibleContent2 .content {
     justify-content: space-between;
+}
+
+.erro {
+    color: red;
+}
+
+input[type="checkbox"] {
+    /* As checkboxes serão 2x maiores que o normal */
+    transform: scale(var(--checkbox-size));
+    
+    cursor: pointer;
 }

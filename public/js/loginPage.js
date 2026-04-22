@@ -23,6 +23,6 @@ document.getElementById('btnLogin').addEventListener('click', async () => {
         sessionStorage.setItem('utilizador', JSON.stringify(utilizador));
         window.location.href = '/';
     } else {
-        alert('Nickname ou palavra-passe incorretos');
+        document.getElementById('erroLogin').textContent = 'Nickname ou palavra-passe incorretos';
     }
 });

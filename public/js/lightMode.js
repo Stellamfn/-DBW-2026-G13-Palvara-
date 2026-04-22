@@ -8,6 +8,7 @@
 export function aplicarTema() {
     const modoClaro = localStorage.getItem('modoClaro') === 'true';
     document.body.classList.toggle('modoClaro', modoClaro);
+    aplicarImagens(modoClaro);
 }
 
 /**
@@ -17,4 +18,16 @@ export function aplicarTema() {
 export function toggleTema(checkbox) {
     localStorage.setItem('modoClaro', checkbox.checked);
     aplicarTema();
+}
+
+/**
+ * Muda o caminho das imagens para as versões de modo claro/escuro de acordo com a variável
+ * @param {boolean} modoClaro 
+ */
+function aplicarImagens(modoClaro) {
+    const modo = modoClaro ? 'ModoClaro' : 'ModoEscuro';
+    
+    document.querySelectorAll('img[src*="ModoEscuro"], img[src*="ModoClaro"]').forEach(img => {
+        img.src = img.src.replace(/Modo(Escuro|Claro)/, modo);
+    });
 }
