@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" font-family="monospace, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 920" font-family="monospace, sans-serif">
 
   <!-- Background -->
-  <rect width="900" height="720" fill="#0f1c18"/>
+  <rect width="900" height="920" fill="#0f1c18"/>
 
   <!-- Title -->
   <text x="450" y="38" text-anchor="middle" fill="#6FAF8F" font-size="18" font-weight="bold">Palvara — Diagrama do Backend</text>
@@ -9,49 +9,42 @@
   <!-- ===== ACTORS / COLUMNS ===== -->
   <!-- User -->
   <text x="80" y="80" text-anchor="middle" fill="#D9D9D9" font-size="13" font-weight="bold">Utilizador</text>
-  <line x1="80" y1="88" x2="80" y2="700" stroke="#D9D9D9" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="80" y1="88" x2="80" y2="900" stroke="#D9D9D9" stroke-width="1.5" stroke-dasharray="6,4"/>
 
   <!-- Browser / Frontend -->
   <text x="300" y="80" text-anchor="middle" fill="#6FAF8F" font-size="13" font-weight="bold">Frontend</text>
   <text x="300" y="95" text-anchor="middle" fill="#6FAF8F" font-size="10">(Browser)</text>
-  <line x1="300" y1="102" x2="300" y2="700" stroke="#6FAF8F" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="300" y1="102" x2="300" y2="900" stroke="#6FAF8F" stroke-width="1.5" stroke-dasharray="6,4"/>
 
   <!-- Express Server -->
   <text x="540" y="80" text-anchor="middle" fill="#88CCAA" font-size="13" font-weight="bold">Servidor</text>
   <text x="540" y="95" text-anchor="middle" fill="#88CCAA" font-size="10">(Express)</text>
-  <line x1="540" y1="102" x2="540" y2="700" stroke="#88CCAA" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="540" y1="102" x2="540" y2="900" stroke="#88CCAA" stroke-width="1.5" stroke-dasharray="6,4"/>
 
   <!-- Database -->
   <text x="760" y="80" text-anchor="middle" fill="#c49a6c" font-size="13" font-weight="bold">Base de Dados</text>
   <text x="760" y="95" text-anchor="middle" fill="#c49a6c" font-size="10">+ API Palavras</text>
-  <line x1="760" y1="102" x2="760" y2="700" stroke="#c49a6c" stroke-width="1.5" stroke-dasharray="6,4"/>
-
-  <!-- ===== HELPER MACROS via reusable elements ===== -->
+  <line x1="760" y1="102" x2="760" y2="900" stroke="#c49a6c" stroke-width="1.5" stroke-dasharray="6,4"/>
 
   <!-- ── 1. Criar Conta ── -->
   <text x="450" y="128" text-anchor="middle" fill="#6FAF8F" font-size="11" font-style="italic">── Criar Conta ──</text>
 
-  <!-- 1.1 Preenche formulário -->
   <line x1="80" y1="142" x2="290" y2="142" stroke="#D9D9D9" stroke-width="1.5" marker-end="url(#arr-grey)"/>
   <rect x="108" y="130" width="156" height="18" fill="#0f1c18"/>
   <text x="186" y="143" text-anchor="middle" fill="#D9D9D9" font-size="10">1. Preenche formulário</text>
 
-  <!-- 1.2 POST /createAccount -->
   <line x1="300" y1="162" x2="530" y2="162" stroke="#6FAF8F" stroke-width="1.5" marker-end="url(#arr-green)"/>
   <rect x="330" y="150" width="170" height="18" fill="#0f1c18"/>
   <text x="415" y="163" text-anchor="middle" fill="#6FAF8F" font-size="10">2. POST /createAccount</text>
 
-  <!-- 1.3 INSERT utilizador -->
   <line x1="540" y1="182" x2="750" y2="182" stroke="#88CCAA" stroke-width="1.5" marker-end="url(#arr-light)"/>
   <rect x="565" y="170" width="160" height="18" fill="#0f1c18"/>
   <text x="645" y="183" text-anchor="middle" fill="#88CCAA" font-size="10">3. INSERT utilizador</text>
 
-  <!-- 1.4 Confirmação -->
   <line x1="750" y1="200" x2="550" y2="200" stroke="#c49a6c" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-orange)"/>
   <rect x="595" y="188" width="120" height="18" fill="#0f1c18"/>
   <text x="655" y="201" text-anchor="middle" fill="#c49a6c" font-size="10">4. Confirmação</text>
 
-  <!-- 1.5 Redireciona /login -->
   <line x1="530" y1="218" x2="310" y2="218" stroke="#88CCAA" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-light)"/>
   <rect x="355" y="206" width="150" height="18" fill="#0f1c18"/>
   <text x="430" y="219" text-anchor="middle" fill="#88CCAA" font-size="10">5. Redireciona /login</text>
@@ -59,27 +52,22 @@
   <!-- ── 2. Login ── -->
   <text x="450" y="244" text-anchor="middle" fill="#6FAF8F" font-size="11" font-style="italic">── Login ──</text>
 
-  <!-- 2.1 -->
   <line x1="80" y1="258" x2="290" y2="258" stroke="#D9D9D9" stroke-width="1.5" marker-end="url(#arr-grey)"/>
   <rect x="100" y="246" width="172" height="18" fill="#0f1c18"/>
   <text x="186" y="259" text-anchor="middle" fill="#D9D9D9" font-size="10">6. Insere nickname/password</text>
 
-  <!-- 2.2 -->
   <line x1="300" y1="278" x2="530" y2="278" stroke="#6FAF8F" stroke-width="1.5" marker-end="url(#arr-green)"/>
   <rect x="345" y="266" width="140" height="18" fill="#0f1c18"/>
   <text x="415" y="279" text-anchor="middle" fill="#6FAF8F" font-size="10">7. POST /login</text>
 
-  <!-- 2.3 -->
   <line x1="540" y1="298" x2="750" y2="298" stroke="#88CCAA" stroke-width="1.5" marker-end="url(#arr-light)"/>
   <rect x="560" y="286" width="170" height="18" fill="#0f1c18"/>
   <text x="645" y="299" text-anchor="middle" fill="#88CCAA" font-size="10">8. Verifica credenciais</text>
 
-  <!-- 2.4 -->
   <line x1="750" y1="316" x2="550" y2="316" stroke="#c49a6c" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-orange)"/>
   <rect x="590" y="304" width="130" height="18" fill="#0f1c18"/>
   <text x="655" y="317" text-anchor="middle" fill="#c49a6c" font-size="10">9. Dados utilizador</text>
 
-  <!-- 2.5 -->
   <line x1="530" y1="334" x2="310" y2="334" stroke="#88CCAA" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-light)"/>
   <rect x="340" y="322" width="170" height="18" fill="#0f1c18"/>
   <text x="425" y="335" text-anchor="middle" fill="#88CCAA" font-size="10">10. Sessão + redirect /</text>
@@ -87,42 +75,34 @@
   <!-- ── 3. Jogo ── -->
   <text x="450" y="360" text-anchor="middle" fill="#6FAF8F" font-size="11" font-style="italic">── Fluxo do Jogo ──</text>
 
-  <!-- 3.1 -->
   <line x1="80" y1="374" x2="290" y2="374" stroke="#D9D9D9" stroke-width="1.5" marker-end="url(#arr-grey)"/>
   <rect x="95" y="362" width="178" height="18" fill="#0f1c18"/>
   <text x="184" y="375" text-anchor="middle" fill="#D9D9D9" font-size="10">11. Inicia Single/Multi Player</text>
 
-  <!-- 3.2 -->
   <line x1="300" y1="394" x2="530" y2="394" stroke="#6FAF8F" stroke-width="1.5" marker-end="url(#arr-green)"/>
   <rect x="320" y="382" width="200" height="18" fill="#0f1c18"/>
   <text x="415" y="395" text-anchor="middle" fill="#6FAF8F" font-size="10">12. GET /api/palavra (API externa)</text>
 
-  <!-- 3.3 -->
   <line x1="540" y1="414" x2="750" y2="414" stroke="#88CCAA" stroke-width="1.5" marker-end="url(#arr-light)"/>
   <rect x="565" y="402" width="165" height="18" fill="#0f1c18"/>
   <text x="648" y="415" text-anchor="middle" fill="#88CCAA" font-size="10">13. Pedido à API palavras</text>
 
-  <!-- 3.4 -->
   <line x1="750" y1="432" x2="550" y2="432" stroke="#c49a6c" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-orange)"/>
   <rect x="590" y="420" width="130" height="18" fill="#0f1c18"/>
   <text x="655" y="433" text-anchor="middle" fill="#c49a6c" font-size="10">14. Palavra gerada</text>
 
-  <!-- 3.5 -->
   <line x1="530" y1="450" x2="310" y2="450" stroke="#88CCAA" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-light)"/>
   <rect x="350" y="438" width="160" height="18" fill="#0f1c18"/>
   <text x="430" y="451" text-anchor="middle" fill="#88CCAA" font-size="10">15. Exibe palavra ao jogador</text>
 
-  <!-- 3.6 -->
   <line x1="80" y1="470" x2="290" y2="470" stroke="#D9D9D9" stroke-width="1.5" marker-end="url(#arr-grey)"/>
   <rect x="100" y="458" width="162" height="18" fill="#0f1c18"/>
   <text x="181" y="471" text-anchor="middle" fill="#D9D9D9" font-size="10">16. Responde (+5 pts se certo)</text>
 
-  <!-- 3.7 -->
   <line x1="300" y1="490" x2="530" y2="490" stroke="#6FAF8F" stroke-width="1.5" marker-end="url(#arr-green)"/>
   <rect x="330" y="478" width="180" height="18" fill="#0f1c18"/>
   <text x="415" y="491" text-anchor="middle" fill="#6FAF8F" font-size="10">17. POST /api/pontuacao</text>
 
-  <!-- 3.8 -->
   <line x1="540" y1="510" x2="750" y2="510" stroke="#88CCAA" stroke-width="1.5" marker-end="url(#arr-light)"/>
   <rect x="560" y="498" width="175" height="18" fill="#0f1c18"/>
   <text x="648" y="511" text-anchor="middle" fill="#88CCAA" font-size="10">18. UPDATE pontuação user</text>
@@ -130,39 +110,78 @@
   <!-- ── 4. Logout ── -->
   <text x="450" y="540" text-anchor="middle" fill="#6FAF8F" font-size="11" font-style="italic">── Logout ──</text>
 
-  <!-- 4.1 -->
   <line x1="80" y1="554" x2="290" y2="554" stroke="#D9D9D9" stroke-width="1.5" marker-end="url(#arr-grey)"/>
   <rect x="120" y="542" width="132" height="18" fill="#0f1c18"/>
   <text x="184" y="555" text-anchor="middle" fill="#D9D9D9" font-size="10">19. Clica Log Off</text>
 
-  <!-- 4.2 -->
   <line x1="300" y1="574" x2="530" y2="574" stroke="#6FAF8F" stroke-width="1.5" marker-end="url(#arr-green)"/>
   <rect x="340" y="562" width="150" height="18" fill="#0f1c18"/>
   <text x="415" y="575" text-anchor="middle" fill="#6FAF8F" font-size="10">20. Termina sessão</text>
 
-  <!-- 4.3 -->
   <line x1="530" y1="592" x2="310" y2="592" stroke="#88CCAA" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-light)"/>
   <rect x="350" y="580" width="160" height="18" fill="#0f1c18"/>
   <text x="430" y="593" text-anchor="middle" fill="#88CCAA" font-size="10">21. Redirect /login</text>
 
-  <!-- ── 5. Sala Multi Player ── -->
-  <text x="450" y="620" text-anchor="middle" fill="#6FAF8F" font-size="11" font-style="italic">── Sala Multi Player ──</text>
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── 5. Sala Multi Player (SEPARADO) ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <text x="450" y="622" text-anchor="middle" fill="#6FAF8F" font-size="11" font-style="italic">── Sala Multi Player ──</text>
 
-  <line x1="80" y1="634" x2="290" y2="634" stroke="#D9D9D9" stroke-width="1.5" marker-end="url(#arr-grey)"/>
-  <rect x="95" y="622" width="178" height="18" fill="#0f1c18"/>
-  <text x="184" y="635" text-anchor="middle" fill="#D9D9D9" font-size="10">22. Cria / Entra numa sala</text>
+  <!-- ── 5a. CRIAR SALA ── -->
+  <text x="192" y="642" text-anchor="middle" fill="#88CCAA" font-size="10" font-style="italic" font-weight="bold">Criar Sala</text>
 
-  <line x1="300" y1="654" x2="530" y2="654" stroke="#6FAF8F" stroke-width="1.5" marker-end="url(#arr-green)"/>
-  <rect x="320" y="642" width="200" height="18" fill="#0f1c18"/>
-  <text x="415" y="655" text-anchor="middle" fill="#6FAF8F" font-size="10">23. POST /sala (código gerado)</text>
+  <!-- 22. Utilizador clica Criar Sala -->
+  <line x1="80" y1="656" x2="290" y2="656" stroke="#D9D9D9" stroke-width="1.5" marker-end="url(#arr-grey)"/>
+  <rect x="95" y="644" width="178" height="18" fill="#0f1c18"/>
+  <text x="184" y="657" text-anchor="middle" fill="#D9D9D9" font-size="10">22. Clica Criar Sala</text>
 
-  <line x1="540" y1="674" x2="750" y2="674" stroke="#88CCAA" stroke-width="1.5" marker-end="url(#arr-light)"/>
-  <rect x="560" y="662" width="175" height="18" fill="#0f1c18"/>
-  <text x="648" y="675" text-anchor="middle" fill="#88CCAA" font-size="10">24. INSERT sala na BD</text>
+  <!-- 23. POST /sala -->
+  <line x1="300" y1="676" x2="530" y2="676" stroke="#6FAF8F" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <rect x="320" y="664" width="200" height="18" fill="#0f1c18"/>
+  <text x="415" y="677" text-anchor="middle" fill="#6FAF8F" font-size="10">23. POST /sala (cria + gera código)</text>
 
-  <line x1="750" y1="692" x2="310" y2="692" stroke="#c49a6c" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-orange)"/>
-  <rect x="430" y="680" width="190" height="18" fill="#0f1c18"/>
-  <text x="525" y="693" text-anchor="middle" fill="#c49a6c" font-size="10">25. Redireciona sala /waitRoom</text>
+  <!-- 24. INSERT sala na BD -->
+  <line x1="540" y1="696" x2="750" y2="696" stroke="#88CCAA" stroke-width="1.5" marker-end="url(#arr-light)"/>
+  <rect x="560" y="684" width="175" height="18" fill="#0f1c18"/>
+  <text x="648" y="697" text-anchor="middle" fill="#88CCAA" font-size="10">24. INSERT sala na BD</text>
+
+  <!-- 25. BD confirma ao Servidor -->
+  <line x1="750" y1="714" x2="550" y2="714" stroke="#c49a6c" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-orange)"/>
+  <rect x="590" y="702" width="130" height="18" fill="#0f1c18"/>
+  <text x="655" y="715" text-anchor="middle" fill="#c49a6c" font-size="10">25. Sala criada (código)</text>
+
+  <!-- 26. Servidor redireciona para /waitRoom -->
+  <line x1="530" y1="732" x2="310" y2="732" stroke="#88CCAA" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-light)"/>
+  <rect x="330" y="720" width="190" height="18" fill="#0f1c18"/>
+  <text x="420" y="733" text-anchor="middle" fill="#88CCAA" font-size="10">26. Redirect /waitRoom/:codigo</text>
+
+  <!-- ── 5b. ENTRAR SALA ── -->
+  <text x="192" y="758" text-anchor="middle" fill="#88CCAA" font-size="10" font-style="italic" font-weight="bold">Entrar Sala</text>
+
+  <!-- 27. Utilizador insere código -->
+  <line x1="80" y1="772" x2="290" y2="772" stroke="#D9D9D9" stroke-width="1.5" marker-end="url(#arr-grey)"/>
+  <rect x="95" y="760" width="178" height="18" fill="#0f1c18"/>
+  <text x="184" y="773" text-anchor="middle" fill="#D9D9D9" font-size="10">27. Insere código da sala</text>
+
+  <!-- 28. GET /sala/:codigo -->
+  <line x1="300" y1="792" x2="530" y2="792" stroke="#6FAF8F" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <rect x="320" y="780" width="200" height="18" fill="#0f1c18"/>
+  <text x="415" y="793" text-anchor="middle" fill="#6FAF8F" font-size="10">28. GET /sala/:codigo</text>
+
+  <!-- 29. SELECT sala na BD -->
+  <line x1="540" y1="812" x2="750" y2="812" stroke="#88CCAA" stroke-width="1.5" marker-end="url(#arr-light)"/>
+  <rect x="560" y="800" width="175" height="18" fill="#0f1c18"/>
+  <text x="648" y="813" text-anchor="middle" fill="#88CCAA" font-size="10">29. SELECT sala na BD</text>
+
+  <!-- 30. BD devolve sala -->
+  <line x1="750" y1="830" x2="550" y2="830" stroke="#c49a6c" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-orange)"/>
+  <rect x="575" y="818" width="148" height="18" fill="#0f1c18"/>
+  <text x="650" y="831" text-anchor="middle" fill="#c49a6c" font-size="10">30. Sala encontrada / erro</text>
+
+  <!-- 31. Servidor redireciona para /waitRoom -->
+  <line x1="530" y1="848" x2="310" y2="848" stroke="#88CCAA" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-light)"/>
+  <rect x="330" y="836" width="190" height="18" fill="#0f1c18"/>
+  <text x="420" y="849" text-anchor="middle" fill="#88CCAA" font-size="10">31. Redirect /waitRoom/:codigo</text>
 
   <!-- ===== ARROWHEAD MARKERS ===== -->
   <defs>
