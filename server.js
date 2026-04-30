@@ -1,7 +1,14 @@
 // ======================================================================
 // IMPORTANTE: ESTE FICHEIRO É PARA FICAR NO DIRETÓRIO RAIZ DO PROJETO
 // ======================================================================
+
+import dotenv from 'dotenv';
+
+dotenv.config();
+console.log(process.env.MONGO_URI);
+
 import express from 'express';
+import mongoose from 'mongoose';
 
 //Não permite injeção de html a partir dos formulários
 //import sanitizeHtml from 'sanitize-html';
@@ -10,6 +17,11 @@ import express from 'express';
 const app = express();
 // Porta do servidor
 const PORT = 3000;
+
+// Liga ao MongoDB
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('MongoDB ligado'))
+    .catch(err => console.error('Erro ao ligar ao MongoDB:', err));
 
 // Serve os ficheiros estáticos (css, js, imagens, etc.)
 app.use(express.static('public'));
@@ -48,10 +60,13 @@ app.get('/login', (req, res) => {
 
 // ======================================================================
 
-// 0.0.0.0 permite ligações a dispositivos na mesma rede
-app.listen(PORT, '0.0.0.0', () => {
+// 0.0.0.0 permite ligações a dispositivos na mesma rede // Neste momento redundante
+// 0.0.0.0/0 é para permitir ligações de qualquer IP (útil para testes em redes externas ou com VPNs)
+app.listen(PORT, '0.0.0.0', '0.0.0.0/0', () => {
     console.log(`Servidor a correr em http://localhost:${PORT}`);
 });
+
+// ======================================================================
 
 // Log de Erros
 
