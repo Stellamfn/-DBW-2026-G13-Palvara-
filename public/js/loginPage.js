@@ -14,15 +14,18 @@ document.getElementById('btnLogin').addEventListener('click', async () => {
     const nickname = document.getElementById('nickname').value;
     const password = document.getElementById('password').value;
 
-    const resposta = await fetch('/data/users.json');
-    const utilizadores = await resposta.json();
+    const resposta = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nickname, password })
+    });
 
-    const utilizador = utilizadores.find(u => u.nickname === nickname && u.password === password);
+    const dados = await resposta.json();
 
-    if (utilizador) {
-        sessionStorage.setItem('utilizador', JSON.stringify(utilizador));
+    if (resposta.ok) {
+        sessionStorage.setItem('utilizador', JSON.stringify(dados.utilizador));
         window.location.href = '/';
     } else {
-        document.getElementById('erroLogin').textContent = 'Nickname ou palavra-passe incorretos';
+        document.getElementById('erroLogin').textContent = dados.erro;
     }
 });

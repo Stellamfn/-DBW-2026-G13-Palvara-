@@ -15,10 +15,21 @@ document.getElementById('btnCriar').addEventListener('click', async () => {
     const password = document.getElementById('password').value;
 
     if (!nickname || !password) {
-        alert('Preenche todos os campos');
+        document.getElementById('erroCriar').textContent = 'Preenche todos os campos';
         return;
     }
 
-    // Para já apenas redireciona, sem guardar (JSON é só leitura no frontend)
-    window.location.href = '/login';
+    const resposta = await fetch('/api/createAccount', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nickname, password })
+    });
+
+    const dados = await resposta.json();
+
+    if (resposta.ok) {
+        window.location.href = '/login';
+    } else {
+        document.getElementById('erroCriar').textContent = dados.erro;
+    }
 });

@@ -5,13 +5,13 @@
 import dotenv from 'dotenv';
 
 dotenv.config();
-console.log(process.env.MONGO_URI);
+//console.log(process.env.MONGO_URI);
 
 import express from 'express';
 import mongoose from 'mongoose';
 
 //Não permite injeção de html a partir dos formulários
-//import sanitizeHtml from 'sanitize-html';
+import sanitizeHtml from 'sanitize-html';
 
 // Define express como a app que iremos usar
 const app = express();
@@ -25,6 +25,12 @@ mongoose.connect(process.env.MONGO_URI)
 
 // Serve os ficheiros estáticos (css, js, imagens, etc.)
 app.use(express.static('public'));
+
+//Impporta o modelo de utilizador
+import User from './models/user.js';
+
+//Middleware para ler o corpo das requisições em formato JSON
+app.use(express.json());
 
 // ============================== Rotas ==============================
 
@@ -56,6 +62,43 @@ app.get('/sign-in', (req, res) => {
 // Rota para a página de Log-In
 app.get('/login', (req, res) => {
     res.sendFile('loginPage.html', { root: './views' });
+});
+
+// ============================== API ==============================
+
+// Rota para criar conta
+app.post('/api/createAccount', async (req, res) => {
+    const { nickname, password } = req.body;
+
+    try {
+        const existente = await User.findOne({ nickname });
+        if (existente) {
+            return res.status(400).json({ erro: 'Nickname já existe' });
+        }
+
+        const novoUser = new User({ nickname, password });
+        await novoUser.save();
+
+        res.status(201).json({ mensagem: 'Conta criada com sucesso' });
+    } catch (err) {
+        res.status(500).json({ erro: 'Erro ao criar conta' });
+    }
+});
+
+// Rota para login
+app.post('/api/login', async (req, res) => {
+    const { nickname, password } = req.body;
+
+    try {
+        const utilizador = await User.findOne({ nickname, password });
+        if (!utilizador) {
+            return res.status(401).json({ erro: 'Nickname ou palavra-passe incorretos' });
+        }
+
+        res.status(200).json({ mensagem: 'Login bem sucedido', utilizador });
+    } catch (err) {
+        res.status(500).json({ erro: 'Erro ao fazer login' });
+    }
 });
 
 // ======================================================================
