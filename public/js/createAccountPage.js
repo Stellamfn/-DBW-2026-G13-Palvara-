@@ -10,6 +10,7 @@ import { aplicarTema, toggleTema } from './lightMode.js';
 // Torna a função acessível no html
 aplicarTema();
 
+// Adiciona um event listener ao botão de alternar tema, que chama a função toggleTema() quando clicado
 document.getElementById('btnCriar').addEventListener('click', async () => {
     const nickname = document.getElementById('nickname').value;
     const password = document.getElementById('password').value;

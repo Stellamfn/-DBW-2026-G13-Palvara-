@@ -116,6 +116,24 @@ body {
     object-fit: cover;
 }
 
+/*
+    Estilo para a imagem de perfil do utilizador
+*/
+#pfp {
+    /* Define a largura e altura da imagem para 16% da largura/altura da janela atual */
+    width: 16vw;
+    height: 16vw;
+    /* Força a imagem a ficar nas porporções 1:1 */
+    aspect-ratio: 1 / 1;
+    /* Evita distorção */
+    object-fit: cover;
+    /* Arredonda os cantos */
+    border-radius: var(--arredondamento);
+    /* Centra a imagem */
+    margin: 0 auto;
+    margin-top: auto;
+}
+
 /*#guess {*/
     /* Empurra a input de adivinhar palavras para o fim da div em que está inserida */
     /*margin-top: auto;*/
@@ -266,7 +284,9 @@ div.visibleContent2 {
     /* Evita que o conteúdo dentro da div ocupe até as bordas */
     padding: var(--espacamento-muito-pequeno);
 }
-
+ /*
+    Estilo para tags da classe "opcao"
+*/
 .opcao {
     /* Centraliza o texto naquilo em que estão inseridos*/
     text-align: center;
@@ -278,6 +298,9 @@ div.visibleContent2 {
     padding-bottom: 1rem;
 }
 
+/*
+    Estilo para tags da classe "logOff"
+*/
 .logOff {
     /* Centraliza o texto naquilo em que estão inseridos*/
     text-align: center;
@@ -285,6 +308,9 @@ div.visibleContent2 {
     color: var(--cor-texto-2);
 }
 
+/*
+    Estilo para tags da classe "continuar"
+*/
 .continuar {
     /* Define a cor de fundo para cor de botão especial*/
     background-color: var(--cor-botao-especial);
@@ -305,7 +331,37 @@ div.visibleContent2 {
     align-items: center;
 }
 
-/* ---------------------------------------------------------------------------------------------------- */
+/*
+    Estilo para checkboxes
+*/
+input[type="checkbox"] {
+    /* As checkboxes serão 2x maiores que o normal */
+    transform: scale(var(--checkbox-size));
+    
+    cursor: pointer;
+}
+
+/* Específico para a página singlePlayer.html */
+.container.conteudoPrincipal.visibleContent2 .content {
+    justify-content: space-between;
+}
+
+/* Estilo para mensagens de erro */
+.erro {
+    color: red;
+}
+
+/*
+    Estilo para tags da classe "flexCenter"
+    Centraliza os itens
+*/
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tapa buracos (Remendos) ---------------------------------------------------------------------------------------------------- */
 
 .pad {
     padding: var(--espacamento-muito-pequeno);
@@ -344,29 +400,4 @@ div.flexiona2 {
     */
     display: flex;
     flex-direction: column;
-}
-
-.flexCenter {
-    /*
-        Centraliza os itens
-    */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Específico para a página singlePlayer.html */
-.container.conteudoPrincipal.visibleContent2 .content {
-    justify-content: space-between;
-}
-
-.erro {
-    color: red;
-}
-
-input[type="checkbox"] {
-    /* As checkboxes serão 2x maiores que o normal */
-    transform: scale(var(--checkbox-size));
-    
-    cursor: pointer;
 }

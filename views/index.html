@@ -31,7 +31,9 @@
         <div class="linha conteudoPrincipal"> <!-- Divisório com classe "linha1" -->
             
             <div class="content visibleContent1"> <!-- Divisório com classe "content" -->
-                <h3 class="opcao">Perfil</h3> <!-- Título de exemplo -->
+                <img id="pfp" src="/img/pfpDefault.png" alt="pfp" class="clicavel" onclick="document.getElementById('inputPfp').click()"> <!-- Imagem de perfil do utilizador -->
+                <input type="file" id="inputPfp" accept="image/*" style="display:none"> <!-- Input para upload da imagem de perfil, escondido para ser acionado pela imagem -->
+                <h3 id="nickname" class="opcao">nickname</h3> <!-- Título de exemplo -->
             </div>
 
             <div onclick="window.location.href='/singlePlayer'" class="content visibleContent1 clicavel"> <!-- Divisório com classe "content" -->

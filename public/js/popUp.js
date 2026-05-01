@@ -3,7 +3,7 @@ import { toggleTema } from './lightMode.js';
 /**
  * Função para criar um pop-up
  */
-export function popUp(op)
+export async function popUp(op)
 {
   // Cria o overlay (camada de fundo que cobre toda a janela)
   const overlay = document.createElement('div');
@@ -18,12 +18,12 @@ export function popUp(op)
   overlay.style.alignItems = 'center';
   overlay.style.justifyContent = 'center';
   
-  // Cria a div com as classes desejadas
+  // Cria a div do pop-up com as classes desejadas
   const containerDiv = document.createElement('div');
   containerDiv.className = 'container content popUp';
   
   // Conteúdo do pop-up
-  containerDiv.innerHTML = HTML_popUp(op);
+  containerDiv.innerHTML = await HTML_popUp(op);
 
   // Associa eventos às checkboxes do popUp
     if (op === 'config') {
@@ -47,22 +47,28 @@ export function popUp(op)
   });
 }
 
-export function HTML_popUp(op)
+/*
+    Retorna o conteúdo HTML do pop-up consoante a opção escolhida.
+    Esta função é assíncrona porque pode necessitar de fazer fetches para obter dados do utilizador (stats).
+*/
+export async function HTML_popUp(op)
 {
     switch (op)
     {
         case "stats":
-        
+        const resposta = await fetch('/api/utilizador');
+        const utilizador = await resposta.json();
+
         // Tested
         return /*html*/ `
             <h2 class="titulo claro txtXL">Métricas de Jogador</h2>
             <div class="visibleContent1 flexiona2 pad contentSpace">
-                <h4 class="titulo popUpTit">Pontuação Total:</h4>
-                <h4 class="titulo popUpTit">Melhor Streak Single-Player:</h4>
-                <h4 class="titulo popUpTit">Melhor Streak Multi-Player:</h4>
-                <h4 class="titulo popUpTit">Número de Respostas Encontradas:</h4>
-                <h4 class="titulo popUpTit">Número de Respostas Erradas:</h4>
-                <h4 class="titulo popUpTit">Tempo Total de Jogo:</h4>
+                <h4 class="titulo popUpTit">Pontuação Total: ${utilizador.metricas.totalScore}</h4>
+                <h4 class="titulo popUpTit">Melhor Streak Single-Player: ${utilizador.metricas.bestStreakSingle}</h4>
+                <h4 class="titulo popUpTit">Melhor Streak Multi-Player: ${utilizador.metricas.bestStreakMulti}</h4>
+                <h4 class="titulo popUpTit">Número de Respostas Encontradas: ${utilizador.metricas.answersFound}</h4>
+                <h4 class="titulo popUpTit">Número de Respostas Erradas: ${utilizador.metricas.answersWrong}</h4>
+                <h4 class="titulo popUpTit">Tempo Total de Jogo: ${utilizador.metricas.totalTime}</h4>
             </div>
         `;
 
