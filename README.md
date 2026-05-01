@@ -10,3 +10,8 @@ https://www.figma.com/design/R1ClzAdFK9MLfiXO4k6zCo/Projeto-DBW?m=auto&t=01OSFLW
 
 nickname: teste;
 password: 1q2w3e;
+
+# MONGO_URI
+
+Palavra-passe no ".env" desatualizada, nova palavra-passe pinned no servidor do Discord "Liberdade";
+Não dar commit com a nova palavra-passe;
