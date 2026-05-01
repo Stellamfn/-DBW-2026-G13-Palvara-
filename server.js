@@ -13,6 +13,8 @@ import sanitizeHtml from 'sanitize-html'; // Não permite injeção de html a pa
 import User from './models/user.js'; // Importa o modelo de utilizador
 import bcrypt from 'bcrypt'; // Para encriptar as palavras-passe
 import multer from 'multer'; // Para lidar com uploads de ficheiros (imagens de perfil)
+import fs from 'fs'; // Para lidar com o sistema de ficheiros (apagar pfps antigas)
+import path from 'path'; // Para lidar com caminhos de ficheiros (construir caminho para pfps)
 
 // ======================================================================
 
@@ -170,11 +172,20 @@ const upload = multer({
 
 // Rota para atualizar a imagem de perfil do utilizador
 app.post('/api/pfp', autenticado, upload.single('pfp'), async (req, res) => {
+    const utilizadorAtual = req.session.utilizador;
+    
+    // Apaga a pfp antiga se não for a default
+    if (utilizadorAtual.pfp && utilizadorAtual.pfp !== '/img/pfpDefault.png') {
+        const caminhoAntigo = path.join('public', utilizadorAtual.pfp);
+        if (fs.existsSync(caminhoAntigo)) {
+            fs.unlinkSync(caminhoAntigo);
+        }
+    }
+
     const caminho = `/data/pfps/${req.file.filename}`;
-    
-    await User.findByIdAndUpdate(req.session.utilizador._id, { pfp: caminho });
+    await User.findByIdAndUpdate(utilizadorAtual._id, { pfp: caminho });
     req.session.utilizador.pfp = caminho;
-    
+
     res.json({ pfp: caminho });
 });
 
