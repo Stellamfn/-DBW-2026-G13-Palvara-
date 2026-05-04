@@ -42,7 +42,37 @@ app.use(session({
     cookie: { secure: false } // true apenas com HTTPS
 }));
 
-// ============================== Rotas ==============================
+// ============================== API ==============================
+import userRoutes from './routes/userRoutes.js';
+
+app.use('/api', userRoutes);
+
+// ============================== Views ==============================
+function autenticado(req, res, next) {
+    req.session.utilizador ? next() : res.redirect('/login');
+}
+
+app.get('/', autenticado, (req, res) => res.sendFile('index.html', { root: './views' }));
+app.get('/singlePlayer', autenticado, (req, res) => res.sendFile('singlePlayer.html', { root: './views' }));
+app.get('/multiPlayer', autenticado, (req, res) => res.sendFile('multiplayerPlayRoom.html', { root: './views' }));
+app.get('/multiPlayer-waitRoom', autenticado, (req, res) => res.sendFile('multiplayerWaitRoom.html', { root: './views' }));
+app.get('/sign-in', (req, res) => res.sendFile('createAccountPage.html', { root: './views' }));
+app.get('/login', (req, res) => res.sendFile('loginPage.html', { root: './views' }));
+
+// 0.0.0.0 permite ligações a dispositivos na mesma rede // Neste momento redundante
+// 0.0.0.0/0 é para permitir ligações de qualquer IP (útil para testes em redes externas ou com VPNs)
+app.listen(PORT, '0.0.0.0', '0.0.0.0/0', () => {
+    console.log(`Servidor a correr em http://localhost:${PORT}`);
+});
+
+// ======================================================================
+
+// Log de Erros
+
+/* Ignorar "Unchecked runtime.lastError" - É erro do browser, não do projeto */
+
+/*
+// ============================== Rotas ============================== E isto !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // Middleware para verificar se o utilizador está autenticado
 function autenticado(req, res, next) {
@@ -189,16 +219,5 @@ app.post('/api/pfp', autenticado, upload.single('pfp'), async (req, res) => {
     res.json({ pfp: caminho });
 });
 
-// ======================================================================
-
-// 0.0.0.0 permite ligações a dispositivos na mesma rede // Neste momento redundante
-// 0.0.0.0/0 é para permitir ligações de qualquer IP (útil para testes em redes externas ou com VPNs)
-app.listen(PORT, '0.0.0.0', '0.0.0.0/0', () => {
-    console.log(`Servidor a correr em http://localhost:${PORT}`);
-});
-
-// ======================================================================
-
-// Log de Erros
-
-/* Ignorar "Unchecked runtime.lastError" - É erro do browser, não do projeto */
+// ====================================================================== Entre isto !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+});*/

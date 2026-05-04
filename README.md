@@ -13,5 +13,5 @@ password: 1q2w3e;
 
 # MONGO_URI
 
-Palavra-passe no ".env" desatualizada, nova palavra-passe pinned no servidor do Discord "Liberdade";
+Palavra-passe do cluster no ".env" desatualizada, nova palavra-passe pinned no servidor do Discord "Liberdade";
 Não dar commit com a nova palavra-passe;
