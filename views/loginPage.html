@@ -1,0 +1,55 @@
+<!-- Isto é um comentário em html -->
+<!DOCTYPE html> <!-- Declaração de html 5 -->
+
+<html lang="pt-PT"> <!-- Declaração de que esta página está em português de Portugal -->
+
+<!-- Chama o Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/css/meuEstilo.css"> <!-- Define meuEstilo.css como stylesheet desta página -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Declaração de uso de caracteres especiais da língua portuguesa -->
+    <title>Palvara - Log-In</title> <!-- Título do separador -->
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
+</head>
+
+<body>
+    <div class="espacoPequeno"></div> <!-- Divisório com classe "espacoPequeno" para criar um espaço pequeno -->
+
+    <div class="nomeDoJogo"> <!-- Divisório com classe "nomeDoJogo" para centralizar o mesmo -->
+        <h1 class="titulo escuro">Palvara</h1> <!-- Título -->
+    </div>
+
+    <div class="espacoPequeno"></div> <!-- Divisório com classe "espacoPequeno" para criar um espaço pequeno -->
+
+    <div class="container"> <!-- Divisório com classe "container" do Bootstrap para centralizar o conteúdo -->
+        <div class="coluna conteudoPrincipal visibleContent2"> <!-- Divisório com classe "linha1" -->
+            
+            <h1 class="titulo claro txtXL">Log-In</h1>
+
+            <form>
+                <h2 class="claro">Nickname</h2> <!-- Título de exemplo -->
+                <input class="fullWidth" type="text" id="nickname" name="nickname">
+                <br><br>
+                <h2 class="claro">Palavra-passe</h2> <!-- Título de exemplo -->
+                <input class="fullWidth" type="password" id="password" name="password">
+                <br><br>
+                <p id="erroLogin" class="erro"></p>
+                <br>
+                <div id="btnLogin" class="clicavel continuar">
+                    <h2 class="titulo claro">Continuar</h2>
+                </div>
+            </form>
+
+            <h3 onclick="window.location.href='/sign-in'" class="titulo claro clicavel">Criar conta</h3>
+
+        </div>
+    </div>
+
+    <div class="espacoPequeno"></div> <!-- Divisório com classe "espacoPequeno" para criar um espaço pequeno -->
+
+    <script type="module" src="/js/loginPage.js"></script>
+</body>
+
+</html>

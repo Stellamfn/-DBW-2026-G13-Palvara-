@@ -1,0 +1,54 @@
+<!-- Isto é um comentário em html -->
+<!DOCTYPE html> <!-- Declaração de html 5 -->
+
+<html lang="pt-PT"> <!-- Declaração de que esta página está em português de Portugal -->
+
+<!-- Chama o Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/css/meuEstilo.css"> <!-- Define meuEstilo.css como stylesheet desta página -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Declaração de uso de caracteres especiais da língua portuguesa -->
+    <title>Palvara - Single Player</title> <!-- Título do separador -->
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
+</head>
+
+<body>
+    <div class="linha">
+        <div id="back"> <!-- Divisório com id "back" para a botão de retroceder/sair -->
+            <img onclick="window.location.href='/'" class="clicavel" src="/img/back-ModoEscuro.png" alt="back">
+        </div>
+        <div id="navbar"> <!-- Divisório com id "navbar" para a barra de navegação -->
+            <img class="clicavel" onclick="popUp('stats')" src="/img/stats-ModoEscuro.png" alt="statistics"> <!-- Imagem para botão de aceder às estatisticas -->
+            <img class="clicavel" onclick="popUp('tutorial')" src="/img/howToPlay-ModoEscuro.png" alt="tutorial"> <!-- Imagem para botão de aceder ao texto que explica como jogar o jogo -->
+            <img class="clicavel" onclick="popUp('config')" src="/img/settings-ModoEscuro.png" alt="settings"> <!-- Imagem para botão de aceder as definições -->
+        </div>
+    </div>
+
+    <div class="nomeDoJogo"> <!-- Divisório com classe "nomeDoJogo" para centralizar o mesmo -->
+        <h1 class="titulo escuro txtXL">Palavra</h1> <!-- Título -->
+    </div>
+    
+    <div class="espacoPequeno flexCenter"> <!-- Divisório com classe "espacoPequeno" para criar um espaço pequeno -->
+        <h5 class="claro">Tempo: 00:00</h5>
+    </div>
+    
+    <div class="container conteudoPrincipal visibleContent2">
+        <div class="content">
+            <h5 class="titulo claro">Pontuação: 0</h5>
+            <div class="scroll"> <ul id="listaPalavras" class="claro"></ul> </div>
+            <form>
+                <input class="fullWidth" type="text" id="guess" name="guess">
+            </form>
+        </div>
+    </div>
+
+    <div class="espacoPequeno flexCenter"> <!-- Divisório com classe "espacoPequeno" para criar um espaço pequeno -->
+        <h5 id="indicadorPalavra" class="claro">Palavra 1 de 10</h5>
+    </div>
+
+    <script type="module" src="/js/singlePlayer.js"></script>
+</body>
+
+</html>

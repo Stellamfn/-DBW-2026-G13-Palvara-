@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/meuEstilo.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Palvara - Multiplayer</title>
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
+</head>
+
+<body>
+    <div class="linha">
+        <div id="back">
+            <img onclick="window.location.href='/'" class="clicavel" src="/img/back-ModoEscuro.png" alt="back">
+        </div>
+        <div id="navbar">
+            <img class="clicavel" onclick="popUp('stats')" src="/img/stats-ModoEscuro.png" alt="statistics">
+            <img class="clicavel" onclick="popUp('tutorial')" src="/img/howToPlay-ModoEscuro.png" alt="tutorial">
+            <img class="clicavel" onclick="popUp('config')" src="/img/settings-ModoEscuro.png" alt="settings">
+        </div>
+    </div>
+
+    <div class="nomeDoJogo">
+        <h1 id="tituloPrincipal" class="titulo escuro txtXL">Em espera...</h1>
+    </div>
+
+    <div class="espacoPequeno flexCenter">
+        <h5 id="subtitulo" class="claro">O jogo irá começar em breve</h5>
+    </div>
+
+    <div class="container">
+        <div class="linha conteudoPrincipal visibleContent2">
+            <div id="painelEsquerdo" class="content visibleContent1">
+                <ul id="listaJogadores"></ul>
+                <div id="btnIniciar" style="display:none" onclick="iniciarJogo()" class="continuar clicavel">
+                    <h2 class="titulo claro">Iniciar Jogo</h2>
+                </div>
+            </div>
+
+            <div class="contentMore">
+                <div class="flexiona">
+                    <ul id="listaPalavras"></ul>
+                </div>
+                <div class="contentEnd fitContentHeight">
+                    <form>
+                        <input class="fullWidth" type="text" id="guess" name="guess" disabled>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="espacoPequeno flexCenter">
+        <h5 id="indicadorPalavra" class="claro"></h5>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/js/multiplayer.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Ignorar "Unchecked runtime.lastError" - É erro do browser, não do projeto
