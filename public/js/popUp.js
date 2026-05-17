@@ -134,34 +134,47 @@ export async function HTML_popUp(op)
         } // break;
 
         case "salas": {
-        
-        // Tested
 
         // Fetch para obter as salas disponíveis
         const respostaSalas = await fetch('/api/sala/listar');
         // Transforma a resposta em JSON
         const salas = await respostaSalas.json();
 
-        // Cria o HTML para cada sala disponível, mostrando o código e o número de jogadores. Se não houver salas, mostra uma mensagem.
-        const listaSalas = salas.map(s => `
-            <div class="col-4">
-                <div onclick="entrarSala('${s.codigo}')" class="flexiona clicavel salaCard">
-                    <h4 class="titulo claro">${s.emJogo ? 'Em jogo' : 'Em espera...'}</h4>
-                    <h4 class="titulo claro">${s.codigo}</h4>
-                    <div class="linha flexiona">
-                        <p class="titulo claro">${s.jogadores.length}/${s.maxJogadores}</p>
-                        <p class="titulo claro">${s.pontuacaoMaxima}</p>
+        // Agrupa as salas em linhas de 3
+        const linhas = salas.reduce((acc, s, i) => {
+            if (i % 3 === 0) acc.push([]);
+            acc[acc.length - 1].push(s);
+            return acc;
+        }, []);
+
+        // Cria o HTML para cada linha de salas
+        const listaSalas = linhas.map(linha => `
+            <div class="linhaAlt">
+                ${linha.map(s => `
+                    <div onclick="entrarSala('${s.codigo}')" class="clicavel salaCard">
+                        <h4 class="titulo claro">${s.emJogo ? 'Em jogo' : 'Em espera...'}</h4>
+                        <h4 class="titulo claro">${s.codigo}</h4>
+                        <div class="linha flexiona2">
+                            <div class="flexCenter">
+                                <img class="iconSala" src="/img/players-ModoEscuro.png" alt="players">
+                            </div>
+                            <div class="flexCenter">
+                                <img class="iconSala" src="/img/points-ModoEscuro.png" alt="points">
+                            </div>
+                        </div>
+                        <div class="linha flexiona flexCenter">
+                            <p class="titulo claro">${s.jogadores.length}/${s.maxJogadores}</p>
+                            <p class="titulo claro">${s.pontuacaoMaxima}</p>
+                        </div>
                     </div>
-                </div>
+                `).join('')}
             </div>
         `).join('');
 
         return /*html*/ `
             <h2 class="titulo claro txtXL">Salas</h2>
             <div class="salas visibleContent1 scroll flexiona2 pad">
-                <div class="row">
-                    ${listaSalas || '<div class="flexCenter"> <h4 class="escuro">Sem salas disponíveis</h4> </div>'}
-                </div>
+                ${listaSalas || '<div class="flexCenter"><h4 class="escuro">Sem salas disponíveis</h4></div>'}
             </div>
             <div class="linha flexiona pad">
                 <div onclick="popUp('configSala')" class="visibleContent1 flexiona flexCenter clicavel">

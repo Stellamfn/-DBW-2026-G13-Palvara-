@@ -34,7 +34,11 @@ socket.on('jogadoresAtualizados', async () => {
 
     sala.jogadores.forEach(j => {
         const li = document.createElement('li');
-        li.textContent = emJogo ? `${j.nickname}: ${j.pontuacao}` : j.nickname;
+        li.innerHTML = `
+            <img src="${j.pfp || '/img/pfpDefault.png'}" alt="pfp" style="width:2vw; height:2vw; border-radius:50%; object-fit:cover;">
+            <span>${j.nickname}</span>
+            <span>${emJogo ? j.pontuacao + ' pts' : ''}</span>
+        `;
         if (j.nickname === nickname) li.style.fontWeight = 'bold';
         lista.appendChild(li);
     });
@@ -113,13 +117,32 @@ document.getElementById('guess').addEventListener('keydown', function(e) {
 
 socket.on('criadorAtualizado', ({ antigoCriador, novoCriador }) => {
     console.log(`Novo criador da sala: ${novoCriador}`);
-    // Atualizar interface para refletir quem é o novo criador !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // Mostrar botões de administrador apenas para o novo criador
+    
+    if (novoCriador === nickname) {
+        document.getElementById('btnIniciar').style.display = 'block';
+    } else {
+        document.getElementById('btnIniciar').style.display = 'none';
+    }
 });
 
-socket.on('jogadoresAtualizados', ({ nickname, acao, novoCriador }) => {
-    // Atualizar lista de jogadores !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // Se novoCriador não for null, atualizar quem é o criador
+socket.on('jogadoresAtualizados', async ({ nickname, acao, novoCriador }) => {
+    const resposta = await fetch(`/api/sala/${codigo}`);
+    const sala = await resposta.json();
+
+    const lista = document.getElementById('listaJogadores');
+    lista.innerHTML = '';
+
+    sala.jogadores.forEach(j => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <img src="${j.pfp || '/img/pfpDefault.png'}" alt="pfp" style="width:2vw; height:2vw; border-radius:50%; object-fit:cover;">
+            <span>${j.nickname}</span>
+            <span>${emJogo ? j.pontuacao + ' pts' : ''}</span>
+        `;
+        if (j.nickname === nickname) li.style.fontWeight = 'bold';
+        lista.appendChild(li);
+    });
+
     if (novoCriador) {
         atualizarCriadorInterface(novoCriador);
     }

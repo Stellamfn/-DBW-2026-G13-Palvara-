@@ -212,6 +212,14 @@ div.nomeDoJogo {
     gap: var(--espacamento-pequeno);
 }
 
+/*
+    Estilo para divs da classe "linha"
+*/
+.linhaAlt {
+    /* Define o layout da div como flexbox para organizar os elementos em linha */
+    display: flex;
+}
+
 .linha2 {
     /* Define o espaço entre os elementos para 2% da altura/largura da janela atual */
     min-height: 2vw;
@@ -273,9 +281,21 @@ div.content {
     /* Define a cor de títulos como a cor de pop ups definida nas variáveis */
     background-color: var(--cor-popup);
     /* Arredonda os cantos da div */
-    border-radius: var(--arredondamento);
+    border-radius: calc(var(--arredondamento) + var(--espacamento-muito-pequeno));
     /* Evita que o conteúdo dentro da div ocupe até as bordas */
     padding: var(--espacamento-muito-pequeno);
+
+    border: var(--espacamento-muito-pequeno) solid var(--cor-conteudo-1);
+
+    width: 33.33333333%;
+    max-width: 33.33333333%;
+}
+
+.iconSala {
+    height: 50%;
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
 }
 
 /*
@@ -431,4 +451,13 @@ div.flexiona2 {
 
 .fitContentHeight {
     height: fit-content;
+}
+
+.salas .linhaAlt {
+    min-height: 100%;
+}
+
+.colunasEm3 {
+    display: flex;
+    gap: var(--espacamento-muito-pequeno);
 }

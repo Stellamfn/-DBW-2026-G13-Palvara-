@@ -1,4 +1,5 @@
 import Room from '../models/room.js';
+import User from '../models/user.js';
 
 // Gera um código aleatório de 6 caracteres alfanuméricos
 function gerarCodigo() {
@@ -16,17 +17,17 @@ export async function criarSala(req, res) {
     const nickname = req.session.utilizador.nickname;
 
     try {
-        // Usa o código fornecido ou gera um novo
         let codigoFinal = codigo || gerarCodigo();
 
-        // Verifica se o código já existe
         const existente = await Room.findOne({ codigo: codigoFinal });
         if (existente) return res.status(400).json({ erro: 'Código já existe' });
+
+        const user = await User.findOne({ nickname });
 
         const sala = new Room({
             codigo: codigoFinal,
             criador: nickname,
-            jogadores: [{ nickname, pontuacao: 0 }],
+            jogadores: [{ nickname, pontuacao: 0, pfp: user.pfp }],
             pontuacaoMaxima: pontuacaoMaxima || 100,
             privada: privada || false
         });
@@ -52,7 +53,8 @@ export async function entrarSala(req, res) {
         // Verifica se já está na sala
         const jaExiste = sala.jogadores.find(j => j.nickname === nickname);
         if (!jaExiste) {
-            sala.jogadores.push({ nickname, pontuacao: 0 });
+            const user = await User.findOne({ nickname });
+            sala.jogadores.push({ nickname, pontuacao: 0, pfp: user.pfp });
             await sala.save();
         }
 
